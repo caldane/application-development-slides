@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 import style from './slide-deck.module.css';
 import { SlideData, SlideDirection } from './slide-deck.types';
 import Slide from '../slide';
@@ -7,22 +8,34 @@ import ProgressBar from '../progress-bar';
 import { slides } from '../../data/slides';
 
 const SlideDeck = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const { slide } = useParams();
+  const navigate = useNavigate();
+  const paramIndex = Math.max(0, Math.min(slides.length - 1, Number(slide) - 1 || 0));
+  const [currentIndex, setCurrentIndex] = useState(paramIndex);
   const [direction, setDirection] = useState<SlideDirection>('next');
+
+  useEffect(() => {
+    if (paramIndex !== currentIndex) {
+      setDirection(paramIndex > currentIndex ? 'next' : 'prev');
+      setCurrentIndex(paramIndex);
+    }
+  }, [paramIndex]);
+
+  const goTo = useCallback((index: number) => {
+    navigate(`/${index + 1}`, { replace: true });
+  }, [navigate]);
 
   const handleNext = useCallback(() => {
     if (currentIndex < slides.length - 1) {
-      setDirection('next');
-      setCurrentIndex(currentIndex + 1);
+      goTo(currentIndex + 1);
     }
-  }, [currentIndex]);
+  }, [currentIndex, goTo]);
 
   const handlePrev = useCallback(() => {
     if (currentIndex > 0) {
-      setDirection('prev');
-      setCurrentIndex(currentIndex - 1);
+      goTo(currentIndex - 1);
     }
-  }, [currentIndex]);
+  }, [currentIndex, goTo]);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {

@@ -481,6 +481,15 @@ export const slides: SlideData[] = [
   },
   {
     id: 36,
+    layout: 'image',
+    title: 'View These Slides Anytime',
+    subtitle: 'slides.caldane.net/app-dev',
+    presenter: 'Bookmark this URL — the slides will stay up!',
+    imageUrl: '/app-dev/qr-code.svg',
+    imageAlt: 'QR code for slides.caldane.net/app-dev',
+  },
+  {
+    id: 37,
     layout: 'title',
     title: 'Questions?',
     subtitle: 'Let\'s talk about tech, careers, and the future',
