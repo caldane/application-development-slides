@@ -1,0 +1,46 @@
+section.nav-bar {
+  position: fixed;
+  inset-block-end: 0;
+  inset-inline: 0;
+  height: 3.5rem;
+  background: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(0.5rem);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: 2rem;
+  z-index: 100;
+  border-block-start: 1px solid rgba(255, 255, 255, 0.05);
+
+  > p {
+    font-size: 1.1rem;
+    color: #94a3b8;
+  }
+
+  > nav {
+    display: flex;
+    gap: 0.5rem;
+
+    > button {
+      background: #334155;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #f1f5f9;
+      padding-block: 0.3rem;
+      padding-inline: 1.3rem;
+      border-radius: 0.3rem;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background 0.2s;
+
+      &:hover:not(:disabled) {
+        background: #38bdf8;
+        color: #0f172a;
+      }
+
+      &:disabled {
+        opacity: 0.3;
+        cursor: not-allowed;
+      }
+    }
+  }
+}

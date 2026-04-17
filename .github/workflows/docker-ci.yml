@@ -1,0 +1,22 @@
+name: Build and Push Docker Image
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+env:
+  REGISTRY: 10.10.10.28:5000
+
+jobs:
+  build-and-push:
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build and push
+        run: |
+          docker build -t ${{ env.REGISTRY }}/app-dev-slides:latest .
+          docker push ${{ env.REGISTRY }}/app-dev-slides:latest

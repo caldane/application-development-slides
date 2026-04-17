@@ -1,0 +1,51 @@
+name: Deploy to Production
+
+on:
+  workflow_dispatch:
+  workflow_run:
+    workflows: ["Build and Push Docker Image"]
+    types: [completed]
+    branches: [main]
+
+env:
+  REGISTRY: 10.10.10.28:5000
+  STACK_NAME: app-dev-slides
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+    environment: Production
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Prepare deploy files
+        run: |
+          cat > /tmp/deploy-app-dev-slides.sh <<'SCRIPT'
+          #!/bin/bash
+          set -e
+
+          echo "=== Pulling image ==="
+          docker pull localhost:5000/app-dev-slides:latest
+
+          echo "=== Recreating containers ==="
+          docker compose -f /tmp/app-dev-slides-stack.yml -p app-dev-slides up -d --force-recreate --remove-orphans
+
+          echo "=== Verifying ==="
+          docker compose -f /tmp/app-dev-slides-stack.yml -p app-dev-slides ps
+          echo "=== Deploy complete ==="
+          SCRIPT
+          sed -i 's/^[[:space:]]*//' /tmp/deploy-app-dev-slides.sh
+          chmod +x /tmp/deploy-app-dev-slides.sh
+
+      - name: Copy files to production host
+        run: |
+          SSH_OPTS="-i ~/.ssh/github_runner_key -o StrictHostKeyChecking=no"
+          scp $SSH_OPTS portainer-stack.yml github-runner@10.10.10.28:/tmp/app-dev-slides-stack.yml
+          scp $SSH_OPTS /tmp/deploy-app-dev-slides.sh github-runner@10.10.10.28:/tmp/deploy-app-dev-slides.sh
+
+      - name: Deploy to production
+        run: |
+          ssh -i ~/.ssh/github_runner_key -o StrictHostKeyChecking=no github-runner@10.10.10.28 "bash /tmp/deploy-app-dev-slides.sh"
