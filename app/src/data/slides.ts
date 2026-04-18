@@ -17,7 +17,7 @@ export const slides: SlideData[] = [
     emoji: '👋',
     bullets: [
       'Senior Developer at Love\'s Travel Stops — platform with 1M+ monthly visits',
-      'Director of I.T. at SoonerCon — built a team of 10 from scratch',
+      'Director of I.T. at Soonercon — built a team of 10 from scratch',
       'Started coding in C on Linux in 2002, before "the cloud" was a thing',
       'Survived VB6, rode the .NET wave, landed in React & Node.js',
       'I\'ve watched every major shift firsthand — and I\'m still here',
