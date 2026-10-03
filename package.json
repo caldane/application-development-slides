@@ -1,0 +1,14 @@
+{
+  "name": "slides",
+  "private": true,
+  "workspaces": [
+    "app-dev",
+    "cinema"
+  ],
+  "scripts": {
+    "dev:app-dev": "npm run dev -w app-dev",
+    "dev:cinema": "npm run dev -w cinema",
+    "build": "npm run build -w app-dev -w cinema",
+    "lint": "npm run lint -w app-dev -w cinema"
+  }
+}

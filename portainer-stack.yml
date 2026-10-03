@@ -1,6 +1,6 @@
 services:
   web:
-    image: localhost:5000/app-dev-slides:latest
+    image: localhost:5000/slides:latest
     restart: unless-stopped
     ports:
       - "4680:80"

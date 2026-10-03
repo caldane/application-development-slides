@@ -37,6 +37,9 @@ bower_components
 # Compiled binary addons (https://nodejs.org/api/addons.html)
 build/Release
 
+# Private notes, not for the public repo
+concomm_it_2026/
+
 # Dependency directories
 node_modules/
 jspm_packages/

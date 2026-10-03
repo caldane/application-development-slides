@@ -18,5 +18,5 @@ jobs:
 
       - name: Build and push
         run: |
-          docker build -t ${{ env.REGISTRY }}/app-dev-slides:latest .
-          docker push ${{ env.REGISTRY }}/app-dev-slides:latest
+          docker build -t ${{ env.REGISTRY }}/slides:latest .
+          docker push ${{ env.REGISTRY }}/slides:latest

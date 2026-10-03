@@ -1,3 +1,7 @@
+---
+applyTo: "**/src/components/**"
+---
+
 # Component Design Rules
 
 These rules govern how all UI components are authored in this project. Follow every rule unless explicitly told otherwise.
@@ -11,13 +15,13 @@ These rules govern how all UI components are authored in this project. Follow ev
   src/components/image-picker/
   ├── image-picker.tsx
   ├── image-picker.types.ts
-  ├── image-picker.module.css
-  └── index.ts
+  └── image-picker.module.css
   ```
 - **Component file** — kebob-case: `image-picker.tsx`
 - **Types file** — kebob-case: `image-picker.types.ts`, co-located in the component folder
 - **Style module** — kebab-case of the component name: `image-picker.module.css`
 
+The types file is optional and only needed if the component has complex props or internal types. The style module is required for every component, even if it's empty, to enforce the styling rules.
 ---
 
 ## Styling
@@ -207,7 +211,6 @@ Keep DOM depth as shallow as possible. Every element must earn its place — if 
 - **Data models** — defined with `interface` keyword
 
 ```ts
-// image-picker.types.ts
 type ImagePickerProps = {
   open: boolean;
   onSelect: (image: MediaItem) => void;
