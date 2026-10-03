@@ -174,6 +174,17 @@ export const slides: SlideData[] = [
   },
   {
     id: 15,
+    layout: 'content',
+    title: 'Official Prop Mic Tier List',
+    cards: [
+      { icon: '🏆', title: 'S Tier: Hairbrush', description: 'Earned in a bathroom mirror at age 9. Grandfathered in. Untouchable.' },
+      { icon: '🥈', title: 'B Tier: Banana', description: 'Lazy, but at least you can eat the evidence' },
+      { icon: '🥉', title: 'D Tier: Unplugged Real Mic', description: 'You own a real microphone and chose violence' },
+      { icon: '🗑️', title: 'F Tier: A Second Phone', description: 'Holding a phone to your mouth while being filmed by another phone. Peak civilization.' },
+    ],
+  },
+  {
+    id: 16,
     layout: 'image',
     title: 'Spotted in the Wild',
     images: [
@@ -183,24 +194,13 @@ export const slides: SlideData[] = [
     ],
   },
   {
-    id: 16,
+    id: 17,
     layout: 'content',
     title: 'Why It Doesn’t Work',
     cards: [
       { icon: '😐', title: 'It’s Not Funny', description: 'The joke is “it’s a banana.” The joke ended at the word banana.' },
       { icon: '🎭', title: 'It’s Not Authentic', description: 'You are pretending to be interviewed. By nobody. In your kitchen.' },
       { icon: '📈', title: 'And Yet It’s Everywhere', description: 'The algorithm loves it, which says more about the algorithm' },
-    ],
-  },
-  {
-    id: 17,
-    layout: 'content',
-    title: 'Official Prop Mic Tier List',
-    cards: [
-      { icon: '🏆', title: 'S Tier: Hairbrush', description: 'Earned in a bathroom mirror at age 9. Grandfathered in. Untouchable.' },
-      { icon: '🥈', title: 'B Tier: Banana', description: 'Lazy, but at least you can eat the evidence' },
-      { icon: '🥉', title: 'D Tier: Unplugged Real Mic', description: 'You own a real microphone and chose violence' },
-      { icon: '🗑️', title: 'F Tier: A Second Phone', description: 'Holding a phone to your mouth while being filmed by another phone. Peak civilization.' },
     ],
   },
   {
