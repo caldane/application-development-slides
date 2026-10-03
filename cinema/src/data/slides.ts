@@ -187,6 +187,7 @@ export const slides: SlideData[] = [
     id: 16,
     layout: 'image',
     title: 'Spotted in the Wild',
+    imageAspectRatio: '3 / 4',
     images: [
       { url: img('hairbrush-mic.jpg'), alt: 'Street interview using a hairbrush as a microphone', caption: '🏆 S Tier hairbrush, live in the field' },
       { url: img('labubu-microphone.jpg'), alt: 'Creator holding a plush toy with a lapel mic clipped to it', caption: '📎 A lapel mic clipped to a plushie' },

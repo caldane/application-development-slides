@@ -340,7 +340,6 @@ section.slide {
       width: auto;
       aspect-ratio: var(--image-aspect-ratio);
       object-fit: cover;
-      object-position: top;
     }
   }
 
