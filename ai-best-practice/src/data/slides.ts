@@ -633,5 +633,7 @@ export const slides: SlideData[] = [
     subtitle: 'Questions?',
     presenter: 'Caleb Haldane',
     presenterTitle: 'May your builds be green and your margins be logical',
+    imageUrl: `${import.meta.env.BASE_URL}qr-code.svg`,
+    imageAlt: 'QR code for slides.caldane.net/ai-best-practice',
   },
 ];
