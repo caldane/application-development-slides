@@ -57,6 +57,16 @@ const Slide = ({ data, isActive, isPrev, direction }: SlideProps) => {
       {data.presenter && <p className={style['presenter']}>{data.presenter}</p>}
       {data.presenterTitle && <p className={style['presenter-title']}>{data.presenterTitle}</p>}
 
+      {data.downloads && (
+        <nav aria-label="Downloads">
+          {data.downloads.map((link) => (
+            <a key={link.url} href={link.url} download>
+              {link.icon} {link.label}
+            </a>
+          ))}
+        </nav>
+      )}
+
       {data.imageUrl && (
         <figure>
           <img src={data.imageUrl} alt={data.imageAlt || data.title} />

@@ -74,11 +74,37 @@ section.slide {
       margin-block-start: 0.3rem;
     }
 
+    > nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-block-start: 2rem;
+
+      > a {
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        text-decoration: none;
+        background: var(--card-bg);
+        border: 1px solid var(--accent);
+        border-radius: 0.5rem;
+        padding-block: 0.5rem;
+        padding-inline: 1rem;
+        transition: background 0.2s, color 0.2s;
+
+        &:hover,
+        &:focus-visible {
+          background: var(--accent);
+          color: var(--bg-dark);
+        }
+      }
+    }
+
     /* Title slide with an image: text on the left, image on the right */
     &:has(> figure) {
       display: grid;
       grid-template-columns: auto auto;
-      grid-template-rows: 1fr repeat(4, auto) 1fr;
+      grid-template-rows: 1fr repeat(5, auto) 1fr;
       justify-content: center;
       column-gap: 5rem;
       text-align: left;
@@ -97,6 +123,10 @@ section.slide {
 
       > p.presenter-title {
         grid-row: 5;
+      }
+
+      > nav {
+        grid-row: 6;
       }
 
       > figure {

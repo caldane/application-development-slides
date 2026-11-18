@@ -21,7 +21,14 @@ type SlideData = {
   emoji?: string;
   footerIcons?: string[];
   code?: CodeSnippet[];
+  downloads?: DownloadLink[];
 };
+
+interface DownloadLink {
+  icon: string;
+  label: string;
+  url: string;
+}
 
 interface GalleryImage {
   url: string;
@@ -48,4 +55,4 @@ interface ComparisonData {
 
 type SlideDirection = 'next' | 'prev';
 
-export type { SlideData, CardData, CodeSnippet, ComparisonData, GalleryImage, SlideDirection };
+export type { SlideData, CardData, CodeSnippet, ComparisonData, DownloadLink, GalleryImage, SlideDirection };

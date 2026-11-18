@@ -635,5 +635,10 @@ export const slides: SlideData[] = [
     presenterTitle: 'May your builds be green and your margins be logical',
     imageUrl: `${import.meta.env.BASE_URL}qr-code.svg`,
     imageAlt: 'QR code for slides.caldane.net/ai-best-practice',
+    downloads: [
+      { icon: '📜', label: 'Instructions', url: `${import.meta.env.BASE_URL}downloads/component-design.instructions.md` },
+      { icon: '🎨', label: 'Stylelint', url: `${import.meta.env.BASE_URL}downloads/stylelint.config.js` },
+      { icon: '🧹', label: 'ESLint', url: `${import.meta.env.BASE_URL}downloads/eslint.config.js` },
+    ],
   },
 ];
