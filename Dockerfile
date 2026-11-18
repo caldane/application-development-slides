@@ -12,8 +12,16 @@ RUN npm install
 COPY cinema/ ./
 RUN npm run build
 
+FROM node:22-alpine AS ai-best-practice
+WORKDIR /build
+COPY ai-best-practice/package.json ai-best-practice/package-lock.json ./
+RUN npm install
+COPY ai-best-practice/ ./
+RUN npm run build
+
 FROM nginx:alpine
 COPY nginx/default.conf /etc/nginx/conf.d/default.conf
 COPY --from=app-dev /build/dist /usr/share/nginx/html/app-dev
 COPY --from=cinema /build/dist /usr/share/nginx/html/cinema
+COPY --from=ai-best-practice /build/dist /usr/share/nginx/html/ai-best-practice
 EXPOSE 80
